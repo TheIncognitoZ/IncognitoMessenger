@@ -10,6 +10,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
@@ -63,16 +64,12 @@ public class LoginActivity extends Activity {
                             if (success) {
                                 String username = response.getString("username");
                                 token = response.getString("token");
-                                System.out.println("token is :"+token);
-                                System.out.println("success is :"+success);
-                                System.out.println("username is :"+username);
-                                System.out.println("response is :"+response.toString(4));
-                                Intent intent = new Intent(LoginActivity.this, UserAreaActivity.class);
+                                Intent intent = new Intent(LoginActivity.this, ConvosActivity.class);
                                 //intent.putExtra("username", username);
                                 LoginActivity.this.startActivity(intent);
                             } else {
                                 AlertDialog.Builder builder = new AlertDialog.Builder(LoginActivity.this);
-                                builder.setMessage("Login Failed"+success)
+                                builder.setMessage("Login Failed")
                                         .setNegativeButton("Retry", null)
                                         .create()
                                         .show();
@@ -83,12 +80,10 @@ public class LoginActivity extends Activity {
                         }
                     }
                 };
-
-                //LoginRequest loginRequest =
+                if(etName.getText().toString().trim().equals("")){
+                    Toast.makeText(getBaseContext(), "Enter some data!", Toast.LENGTH_LONG).show();}else{
                 new LoginRequest(name, password, responseListener);
-                //RequestQueue queue =
-                Volley.newRequestQueue(LoginActivity.this);
-                //queue.add(loginRequest);
+                Volley.newRequestQueue(LoginActivity.this);}
             }
         });
     }

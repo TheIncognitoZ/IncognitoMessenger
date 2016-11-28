@@ -33,7 +33,7 @@ public class RegisterActivity extends Activity {
         setContentView(R.layout.activity_register);
 
         final EditText etName = (EditText) findViewById(R.id.etName);
-        //final EditText etEmail = (EditText) findViewById(R.id.etEmail);
+        final EditText etEmail = (EditText) findViewById(R.id.etEmail);
         final EditText etPassword = (EditText) findViewById(R.id.etPassword);
         final Button bRegister = (Button) findViewById(R.id.bRegister);
 
@@ -42,7 +42,7 @@ public class RegisterActivity extends Activity {
             public void onClick(View v) {
                 final String name = etName.getText().toString();
                 final String password = etPassword.getText().toString();
-                // final String email = etEmail.getText().toString();
+                final String email = etEmail.getText().toString();
 
                 Response.Listener<JSONObject> responseListener = new Response.Listener<JSONObject>() {
                     @Override
@@ -69,7 +69,7 @@ public class RegisterActivity extends Activity {
                 };
 
                 try {
-                    new RegisterRequest(name, password, /*email,*/ responseListener);
+                    new RegisterRequest(name, password, email, responseListener);
                 } catch (Exception e) {
                     e.printStackTrace();
                 }

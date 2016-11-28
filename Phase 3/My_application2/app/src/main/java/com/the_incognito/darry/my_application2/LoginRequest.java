@@ -21,8 +21,6 @@ public class LoginRequest {
         params = new HashMap<>();
         params.put("username", username);
         params.put("password", password);
-        System.out.println("name is :"+username);
-        System.out.println("password is :"+password);
 
         JsonObjectRequest req = new JsonObjectRequest(LOGIN_REQUEST_URL, new JSONObject(params),
                 listener, new Response.ErrorListener() {

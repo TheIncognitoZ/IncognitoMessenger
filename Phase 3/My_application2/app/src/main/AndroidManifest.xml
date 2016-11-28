@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.the_incognito.darry.my_application2">
+
     <uses-permission android:name="android.permission.INTERNET" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -16,7 +18,17 @@
             </intent-filter>
         </activity>
         <activity android:name=".RegisterActivity" />
-        <activity android:name=".UserAreaActivity"></activity>
+        <activity android:name=".UserAreaActivity" />
+        <activity
+            android:name=".ConvosActivity"
+            android:label="@string/title_activity_convos" />
+        <activity
+            android:name=".ConvosArrayAdapter"
+            android:label="@string/title_activity_convos_array_adapter" />
+        <activity
+            android:name=".Chat"
+            android:label="@string/title_activity_chat" />
+        <activity android:name=".CustomActivity"></activity>
     </application>
 
 </manifest>

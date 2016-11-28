@@ -16,10 +16,10 @@ public class RegisterRequest {
     private HashMap<String, String> params;
     private static final String REGISTER_REQUEST_URL = "http://192.168.1.21:8080/incongnitomessenger/webapi/auth/register";
 
-    public RegisterRequest(String name, String password, /*String email,*/ Response.Listener<JSONObject> listener) {
+    public RegisterRequest(String name, String password, String email, Response.Listener<JSONObject> listener) {
         params = new HashMap<>();
         params.put("username", name);
-        //params.put("email", email);
+        params.put("email", email);
         params.put("password", password);
         JsonObjectRequest req = new JsonObjectRequest(REGISTER_REQUEST_URL, new JSONObject(params),
                 listener, new Response.ErrorListener() {
