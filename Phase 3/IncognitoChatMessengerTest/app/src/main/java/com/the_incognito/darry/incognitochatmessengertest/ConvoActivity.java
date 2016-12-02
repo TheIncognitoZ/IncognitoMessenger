@@ -22,6 +22,7 @@ import com.android.volley.toolbox.Volley;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.security.SecureRandom;
 import java.util.ArrayList;
 
 import co.intentservice.chatui.ChatView;
@@ -38,7 +39,7 @@ public class ConvoActivity extends Activity {
     private static ConvoActivity cInstance;
     public static final String TAG = "VolleyPatterns";
     private RequestQueue cRequestQueue;
-    public static String token;
+    public String token;
     //public String email;
 
     @Override
@@ -46,7 +47,7 @@ public class ConvoActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_convo);
         cInstance = this;
-
+        final String token = getIntent().getStringExtra("token");
         addButton = (Button) findViewById(R.id.addButton);
         textView = (TextView) findViewById(R.id.textView);
         editText = (EditText) findViewById(R.id.editText);
@@ -58,28 +59,6 @@ public class ConvoActivity extends Activity {
                 android.R.layout.simple_list_item_1, arrayList);
         //System.out.println("created adapter "+adapter);
         listview.setAdapter(adapter);
-
-        listview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-
-            @Override
-            public void onItemClick(AdapterView<?> parent, final View view,
-                                    int position, long id) {
-                final String item = (String) parent.getItemAtPosition(position);
-                //String email = editText.toString();
-                view.animate().setDuration(2000).alpha(0)
-                        .withEndAction(new Runnable() {
-                            @Override
-                            public void run() {
-                                // ChatUser user = new ChatUser();
-                                //startActivity(new Intent(ConvosActivity.this, Chat.class).putExtra(Const.EXTRA_DATA,item));
-                                Intent intent = new Intent(ConvoActivity.this, ChatActivity.class);
-                                intent.putExtra("username", item);//username is receiver name eg.nalula
-                                ConvoActivity.this.startActivity(intent);
-                            }
-                        });
-            }
-
-        });
 
         /*editText.setOnKeyListener(new View.OnKeyListener() {
             public boolean onKey(View v, int keyCode, KeyEvent event) {
@@ -127,6 +106,30 @@ public class ConvoActivity extends Activity {
                 }
 
             }
+        });
+
+        listview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+
+            @Override
+            public void onItemClick(AdapterView<?> parent, final View view,
+                                    int position, long id) {
+                final String item = (String) parent.getItemAtPosition(position);
+                //String email = editText.toString();
+                view.animate().setDuration(2000).alpha(0)
+                        .withEndAction(new Runnable() {
+                            @Override
+                            public void run() {
+                                // ChatUser user = new ChatUser();
+                                //startActivity(new Intent(ConvosActivity.this, Chat.class).putExtra(Const.EXTRA_DATA,item));
+                                Intent intent = new Intent(ConvoActivity.this, ChatActivity.class);
+                                intent.putExtra("username", item);//username is receiver name eg.nalula
+                                intent.putExtra("token",token);
+                                System.out.println("token passed to chat is :"+ token);
+                                ConvoActivity.this.startActivity(intent);
+                            }
+                        });
+            }
+
         });
     }
     private boolean validate(){

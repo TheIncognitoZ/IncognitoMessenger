@@ -24,7 +24,7 @@ public class LoginActivity extends Activity {
     private static LoginActivity lInstance;
     public static final String TAG = "VolleyPatterns";
     private RequestQueue lRequestQueue;
-    public static String token;
+    public String token;
     public static String username;
 
     @Override
@@ -60,12 +60,14 @@ public class LoginActivity extends Activity {
                             //JSONObject jsonResponse = new JSONObject(response);
                             VolleyLog.v("Response:%n %s", response.toString(4));
                             boolean success = response.getBoolean("success");
-                            System.out.println("response is :"+response.toString(4));
+                            System.out.println("Login Activity response is :"+response.toString(4));
                             if (success) {
                                 username = response.getString("username");
                                 token = response.getString("token");
                                 Intent intent = new Intent(LoginActivity.this, ConvoActivity.class);
                                 intent.putExtra("username", username);
+                                intent.putExtra("token",token);
+                                System.out.println("token passed to Convos is :"+ token);
                                 LoginActivity.this.startActivity(intent);
                             } else {
                                 AlertDialog.Builder builder = new AlertDialog.Builder(LoginActivity.this);

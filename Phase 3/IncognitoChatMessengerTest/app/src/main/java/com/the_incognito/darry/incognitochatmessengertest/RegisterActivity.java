@@ -9,6 +9,7 @@ import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
@@ -48,11 +49,14 @@ public class RegisterActivity extends Activity {
                     @Override
                     public void onResponse(JSONObject response) {
                         try {
+
                             //JSONObject jsonResponse = new JSONObject(response);
                             VolleyLog.v("Response:%n %s", response.toString(4));
                             boolean success = response.getBoolean("success");
+                            System.out.println("SUcccess value is :"+success);
                             //String token = response.getString("token");
                             if (success) {
+                                Toast.makeText(getBaseContext(), "Registration Successful!", Toast.LENGTH_LONG).show();
                                 Intent intent = new Intent(RegisterActivity.this, LoginActivity.class);
                                 RegisterActivity.this.startActivity(intent);
                             } else {
