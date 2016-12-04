@@ -1,8 +1,0 @@
-<resources>
-    <string name="app_name">IncognitoMessenger</string>
-    <string name="title_section1">Favourites</string>
-    <string name="title_section2">Chats</string>
-    <string name="title_section3">Contacts</string>
-    <string name="section_format">Hello World from section: %1$d</string>
-    <string name="action_settings">Settings</string>
-</resources>

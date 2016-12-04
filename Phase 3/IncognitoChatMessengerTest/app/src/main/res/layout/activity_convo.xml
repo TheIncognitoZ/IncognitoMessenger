@@ -16,6 +16,12 @@
         android:dividerHeight="1dp" >
     </ListView>
 
+    <TextView
+        android:text="Enter email"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/textView2" />
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -24,6 +30,15 @@
         android:padding="@dimen/pad_5dp"
         tools:context=".MainActivity" >
 
+        <EditText
+            android:id="@+id/etKey"
+            style="@style/edittext_msg"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:hint="Enter Buddy Key" >
+
+        </EditText>
 
         <EditText
             android:id="@+id/editText"
@@ -45,5 +60,6 @@
             android:background="@drawable/ic_send" />
 
     </LinearLayout>
+
 
 </LinearLayout>

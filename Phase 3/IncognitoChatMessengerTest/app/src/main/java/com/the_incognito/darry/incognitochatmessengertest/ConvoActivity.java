@@ -2,6 +2,8 @@ package com.the_incognito.darry.incognitochatmessengertest;
 
 import android.app.Activity;
 import android.app.AlertDialog;
+//import android.app.Dialog;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
@@ -22,14 +24,18 @@ import com.android.volley.toolbox.Volley;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.security.NoSuchAlgorithmException;
 import java.security.SecureRandom;
 import java.util.ArrayList;
+
+import org.apache.commons.codec.binary.Base64;
+import org.spongycastle.jce.provider.BouncyCastleProvider;
 
 import co.intentservice.chatui.ChatView;
 
 public class ConvoActivity extends Activity {
     // private static final String TAG = "ArrayAdapterListViewActivity";
-    EditText editText;
+    EditText editText, etKey;
     Button addButton;
     TextView textView;
     ConvoArrayAdapter adapter;
@@ -40,7 +46,6 @@ public class ConvoActivity extends Activity {
     public static final String TAG = "VolleyPatterns";
     private RequestQueue cRequestQueue;
     public String token;
-    //public String email;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,7 +56,10 @@ public class ConvoActivity extends Activity {
         addButton = (Button) findViewById(R.id.addButton);
         textView = (TextView) findViewById(R.id.textView);
         editText = (EditText) findViewById(R.id.editText);
+        etKey = (EditText) findViewById(R.id.etKey);
         listview = (ListView) findViewById(R.id.listview);
+        final Context context = this;
+        final String author = getIntent().getStringExtra("username");
 
         arrayList = new ArrayList<String>();
         //ChatView chatView = (ChatView) findViewById(R.id.chat_view);
@@ -60,6 +68,7 @@ public class ConvoActivity extends Activity {
         //System.out.println("created adapter "+adapter);
         listview.setAdapter(adapter);
 
+        //final String secretKey = etKey.getText().toString();
         /*editText.setOnKeyListener(new View.OnKeyListener() {
             public boolean onKey(View v, int keyCode, KeyEvent event) {
                 if ((event.getAction() == KeyEvent.ACTION_DOWN) && (keyCode == KeyEvent.KEYCODE_ENTER)) {
@@ -77,24 +86,27 @@ public class ConvoActivity extends Activity {
                 Response.Listener<JSONObject> responseListener = new Response.Listener<JSONObject>() {
                     @Override
                     public void onResponse(JSONObject response) {
-                        try {
-                            //JSONObject jsonResponse = new JSONObject(response);
-                            VolleyLog.v("Response:%n %s", response.toString(4));
-                            boolean success = response.getBoolean("success");
-                            if (success) {
-                                String username = response.getString("username");
-                                addItem(username);
-                            } else {
-                                AlertDialog.Builder builder = new AlertDialog.Builder(ConvoActivity.this);
-                                builder.setMessage("Email not found")
-                                        .setNegativeButton("Retry", null)
-                                        .create()
-                                        .show();
-                            }
+                    try {
+                        //JSONObject jsonResponse = new JSONObject(response);
+                        VolleyLog.v("Response:%n %s", response.toString(4));
+                        boolean success = response.getBoolean("success");
+                        if (success) {
 
-                        } catch (JSONException e) {
-                            e.printStackTrace();
+                            //System.out.println("Your private key is :"+secretKey);
+                            String username = response.getString("username");
+                            addItem(username);
+                            adapter.notifyDataSetChanged();
+                        } else {
+                            AlertDialog.Builder builder = new AlertDialog.Builder(ConvoActivity.this);
+                            builder.setMessage("Email not found")
+                                    .setNegativeButton("Retry", null)
+                                    .create()
+                                    .show();
                         }
+
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                    }
                     }
                 };
                 if(!validate()){
@@ -114,18 +126,26 @@ public class ConvoActivity extends Activity {
             public void onItemClick(AdapterView<?> parent, final View view,
                                     int position, long id) {
                 final String item = (String) parent.getItemAtPosition(position);
-                //String email = editText.toString();
+
+                final String secretKey = etKey.getText().toString();
+                System.out.println("edittext secret is :"+secretKey);
                 view.animate().setDuration(2000).alpha(0)
                         .withEndAction(new Runnable() {
                             @Override
-                            public void run() {
-                                // ChatUser user = new ChatUser();
-                                //startActivity(new Intent(ConvosActivity.this, Chat.class).putExtra(Const.EXTRA_DATA,item));
+                            public void run() {if(!secretKey.equals(null)&&(secretKey.length()>0)){
                                 Intent intent = new Intent(ConvoActivity.this, ChatActivity.class);
                                 intent.putExtra("username", item);//username is receiver name eg.nalula
                                 intent.putExtra("token",token);
+                                intent.putExtra("author",author);
+                                intent.putExtra("secretKey",secretKey);
                                 System.out.println("token passed to chat is :"+ token);
-                                ConvoActivity.this.startActivity(intent);
+                                System.out.println("SecretKey passed to chat is :"+ secretKey);
+                                ConvoActivity.this.startActivity(intent);}
+                            else{
+                                Toast.makeText(getBaseContext(), "Buddy Key is not set!", Toast.LENGTH_LONG).show();
+                            }
+
+                                //etKey.setText("");
                             }
                         });
             }
@@ -142,6 +162,7 @@ public class ConvoActivity extends Activity {
         adapter.add(uname);
         arrayList.add(uname);
         editText.setText("");
+
         adapter.notifyDataSetChanged();
         listview.smoothScrollToPosition(adapter.getCount() - 1);
         return true;

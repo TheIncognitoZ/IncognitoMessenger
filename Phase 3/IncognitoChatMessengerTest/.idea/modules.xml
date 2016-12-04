@@ -5,6 +5,7 @@
       <module fileurl="file://$PROJECT_DIR$/IncognitoChatMessengerTest.iml" filepath="$PROJECT_DIR$/IncognitoChatMessengerTest.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
       <module fileurl="file://$PROJECT_DIR$/library/library.iml" filepath="$PROJECT_DIR$/library/library.iml" />
+      <module fileurl="file://$PROJECT_DIR$/libscrypt/libscrypt.iml" filepath="$PROJECT_DIR$/libscrypt/libscrypt.iml" />
     </modules>
   </component>
 </project>

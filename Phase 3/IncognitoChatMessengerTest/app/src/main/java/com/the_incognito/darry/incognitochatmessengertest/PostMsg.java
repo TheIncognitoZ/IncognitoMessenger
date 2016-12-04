@@ -12,10 +12,14 @@ import com.android.volley.toolbox.JsonObjectRequest;
 
 import org.json.JSONObject;
 
+import java.security.PrivateKey;
+import java.security.PublicKey;
 import java.util.HashMap;
 import java.util.Map;
 
 import co.intentservice.chatui.models.ChatMessage;
+
+import static com.the_incognito.darry.incognitochatmessengertest.LoginActivity.username;
 
 /**
  * Created by darry on 11/29/2016.
@@ -23,24 +27,27 @@ import co.intentservice.chatui.models.ChatMessage;
 
 public class PostMsg {
     private HashMap<String, String> params;
-    private static final String POST_REQUEST_URL ="https://api.incognitomessenger.me/incongnitomessenger/webapi/messages"; //"http://requestb.in/13u3n2q1";
+    private static final String POST_REQUEST_URL ="http://192.168.1.16:8080/incongnitomessenger/webapi/messages"; //"http://requestb.in/13u3n2q1"; https://api.incognitomessenger.me/incongnitomessenger/webapi/messages
 
 
     //private Map<String, String> params;
 
-    public PostMsg(String msg, String bud, String author, final String token, Response.Listener<JSONObject> listener) {
+    public PostMsg(String msg, String bud, String author, final String token , final String signature, String publicKey, Response.Listener<JSONObject> listener) {
         //super(Method.POST, LOGIN_REQUEST_URL, listener, null);
         System.out.println("postmsg is :"+ msg);
-        ChatMessage chatMessage = new ChatMessage(msg,  bud,  author,   listener);
+        //ChatMessage chatMessage = new ChatMessage(msg,  bud,  author,   listener);
         System.out.println("token in post is :"+ token);
         params = new HashMap<>();
-        params.put("receiver", chatMessage.getReceiver());
-        params.put("author", chatMessage.getAuthor());
-        params.put("content", chatMessage.getMessage());
-
-        System.out.println("value of message :"+chatMessage.getMessage());
-        System.out.println("value of receiver :"+chatMessage.getReceiver());
-        System.out.println("value of author :"+chatMessage.getAuthor());
+        params.put("receiver", bud);
+        params.put("author", author);
+        params.put("content", msg);
+        params.put("sign",signature);
+        params.put("publickey",publicKey);
+        System.out.println("value of message :"+msg);
+        System.out.println("value of receiver :"+bud);
+        System.out.println("value of author :"+author);
+        System.out.println("value of signature :"+signature);
+        System.out.println("value of publicKey :"+publicKey);
 
         JsonObjectRequest req = new JsonObjectRequest(POST_REQUEST_URL, new JSONObject(params),
                 listener, new Response.ErrorListener() {

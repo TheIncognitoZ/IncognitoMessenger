@@ -16,11 +16,15 @@ import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyLog;
 import com.android.volley.toolbox.Volley;
+import com.lambdaworks.crypto.SCryptUtil;
 
 import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.io.IOException;
+import java.io.UnsupportedEncodingException;
+import java.security.NoSuchAlgorithmException;
+import java.security.SecureRandom;
 
 public class RegisterActivity extends Activity {
     private static RegisterActivity sInstance;
@@ -44,12 +48,19 @@ public class RegisterActivity extends Activity {
                 final String name = etName.getText().toString();
                 final String password = etPassword.getText().toString();
                 final String email = etEmail.getText().toString();
-
+                final byte[] salt = new byte[16];
+                try {
+                    SecureRandom.getInstance("SHA1PRNG").nextBytes(salt);
+                } catch (NoSuchAlgorithmException e) {
+                    e.printStackTrace();
+                }
+                String scrypt = SCryptUtil.scrypt(salt,password, 16384, 8, 1);
+                //System.out.println("password scrypt is :"+scrypt);
                 Response.Listener<JSONObject> responseListener = new Response.Listener<JSONObject>() {
                     @Override
                     public void onResponse(JSONObject response) {
                         try {
-
+                            //String str = new String(salt,"UTF-8");
                             //JSONObject jsonResponse = new JSONObject(response);
                             VolleyLog.v("Response:%n %s", response.toString(4));
                             boolean success = response.getBoolean("success");
@@ -58,10 +69,12 @@ public class RegisterActivity extends Activity {
                             if (success) {
                                 Toast.makeText(getBaseContext(), "Registration Successful!", Toast.LENGTH_LONG).show();
                                 Intent intent = new Intent(RegisterActivity.this, LoginActivity.class);
+                                intent.putExtra("salt",salt);
+                                System.out.println("salt passed to Login is :"+ salt);
                                 RegisterActivity.this.startActivity(intent);
                             } else {
                                 AlertDialog.Builder builder = new AlertDialog.Builder(RegisterActivity.this);
-                                builder.setMessage("Register Failed")
+                                builder.setMessage("Registration Failed")
                                         .setNegativeButton("Retry", null)
                                         .create()
                                         .show();
@@ -73,7 +86,7 @@ public class RegisterActivity extends Activity {
                 };
 
                 try {
-                    new RegisterRequest(name, password, email, responseListener);
+                    new RegisterRequest(name, scrypt, email, responseListener);
                 } catch (Exception e) {
                     e.printStackTrace();
                 }

@@ -352,9 +352,13 @@ public class ChatView extends RelativeLayout {
     private void sendMessage(String message, long stamp) {
         System.out.println("message is :"+message);
         ChatMessage chatMessage = new ChatMessage(message, stamp, Type.SENT);
-        if (onSentMessageListener != null && onSentMessageListener.sendMessage(chatMessage)) {
-            chatViewListAdapter.addMessage(chatMessage);
-            inputEditText.setText("");
+        try {
+            if (onSentMessageListener != null && onSentMessageListener.sendMessage(chatMessage)) {
+                chatViewListAdapter.addMessage(chatMessage);
+                inputEditText.setText("");
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
         }
     }
 
@@ -362,9 +366,13 @@ public class ChatView extends RelativeLayout {
         //System.out.println("message is :"+message);
         //new HttpAsyncTask().execute("https://api.incognitomessenger.me/incongnitomessenger/webapi/messages");
         ChatMessage chatMessage = new ChatMessage(message, author, receiver, stamp, Type.SENT);
-        if (onSentMessageListener != null && onSentMessageListener.sendMessage(chatMessage)) {
-            chatViewListAdapter.addMessage(chatMessage);
-            inputEditText.setText("");
+        try {
+            if (onSentMessageListener != null && onSentMessageListener.sendMessage(chatMessage)) {
+                chatViewListAdapter.addMessage(chatMessage);
+                inputEditText.setText("");
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
         }
 
     }
@@ -397,7 +405,7 @@ public class ChatView extends RelativeLayout {
     }
 
     public interface OnSentMessageListener {
-        boolean sendMessage(ChatMessage chatMessage);
+        boolean sendMessage(ChatMessage chatMessage) throws Exception;
     }
 
     private class ChatViewListAdapter extends BaseAdapter {
