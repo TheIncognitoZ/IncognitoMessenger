@@ -3,8 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:chatview="http://schemas.android.com/apk/res-auto"
-    android:background="@color/black"
+    android:background="@color/white_smoke"
     android:orientation="vertical">
 
 
@@ -13,14 +12,10 @@
         android:layout_width="match_parent"
         android:layout_height="433dp"
         android:divider="@color/main_color_green"
-        android:dividerHeight="1dp" >
+        android:dividerHeight="1dp"
+        tools:background="@color/dark_gray"
+        android:backgroundTint="@android:color/holo_red_dark">
     </ListView>
-
-    <TextView
-        android:text="Enter email"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/textView2" />
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -36,7 +31,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:hint="Enter Buddy Key" >
+            android:hint="Enter Secret Word" >
 
         </EditText>
 
@@ -47,7 +42,7 @@
             android:layout_height="wrap_content"
             android:inputType="textEmailAddress"
             android:layout_weight="1"
-            android:hint="Enter email" >
+            android:hint="Enter E-mail" >
 
 
         </EditText>

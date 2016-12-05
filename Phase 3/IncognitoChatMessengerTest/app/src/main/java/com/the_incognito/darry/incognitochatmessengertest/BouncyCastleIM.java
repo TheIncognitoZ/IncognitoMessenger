@@ -1,52 +1,41 @@
 package com.the_incognito.darry.incognitochatmessengertest;
 
-/**
- * Created by darry on 12/2/2016.
- */
+import org.apache.commons.codec.binary.Base64;
+import org.apache.commons.codec.binary.Hex;
+import org.apache.commons.lang3.RandomStringUtils;
+import org.spongycastle.jce.ECNamedCurveTable;
+import org.spongycastle.jce.provider.BouncyCastleProvider;
+import org.spongycastle.jce.spec.ECParameterSpec;
 
-        import android.util.Xml;
+import java.io.UnsupportedEncodingException;
+import java.math.BigInteger;
+import java.nio.ByteBuffer;
+import java.nio.ByteOrder;
+import java.security.InvalidAlgorithmParameterException;
+import java.security.InvalidKeyException;
+import java.security.Key;
+import java.security.KeyPair;
+import java.security.KeyPairGenerator;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
+import java.security.NoSuchProviderException;
+import java.security.PrivateKey;
+import java.security.PublicKey;
+import java.security.SecureRandom;
+import java.security.Security;
+import java.security.Signature;
+import java.security.SignatureException;
+import java.security.spec.InvalidKeySpecException;
+import java.security.spec.KeySpec;
 
-        import java.io.UnsupportedEncodingException;
-        import java.math.BigInteger;
-        import java.nio.ByteBuffer;
-        import java.nio.ByteOrder;
-        import java.security.InvalidAlgorithmParameterException;
-        import java.security.InvalidKeyException;
-        import java.security.Key;
-        import java.security.KeyPair;
-        import java.security.KeyPairGenerator;
-        import java.security.MessageDigest;
-        import java.security.NoSuchAlgorithmException;
-        import java.security.NoSuchProviderException;
-        import java.security.PrivateKey;
-        import java.security.PublicKey;
-        import java.security.SecureRandom;
-        import java.security.Security;
-        import java.security.Signature;
-        import java.security.SignatureException;
-        import java.security.spec.ECGenParameterSpec;
-        import java.security.spec.InvalidKeySpecException;
-        import java.security.spec.KeySpec;
-        import java.util.Scanner;
-        import javax.crypto.*;
-        import javax.crypto.spec.IvParameterSpec;
-        import javax.crypto.spec.PBEKeySpec;
-        import javax.crypto.spec.SecretKeySpec;
+import javax.crypto.Cipher;
+import javax.crypto.Mac;
+import javax.crypto.SecretKey;
+import javax.crypto.SecretKeyFactory;
+import javax.crypto.spec.IvParameterSpec;
+import javax.crypto.spec.PBEKeySpec;
+import javax.crypto.spec.SecretKeySpec;
 
-        import org.apache.commons.codec.binary.Base64;
-        import org.apache.commons.codec.binary.Hex;
-        import org.apache.commons.lang3.RandomStringUtils;
-        import org.spongycastle.crypto.digests.SHA256Digest;
-        import org.spongycastle.crypto.macs.HMac;
-        import org.spongycastle.crypto.params.KeyParameter;
-        import org.spongycastle.jce.ECNamedCurveTable;
-        import org.spongycastle.jce.provider.BouncyCastleProvider;
-        import org.spongycastle.jce.spec.ECParameterSpec;
-
-/**
- *
- * @author Smitesh
- */
 public class BouncyCastleIM {
 
     {

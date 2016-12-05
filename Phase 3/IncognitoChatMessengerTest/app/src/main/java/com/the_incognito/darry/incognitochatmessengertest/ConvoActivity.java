@@ -2,9 +2,9 @@ package com.the_incognito.darry.incognitochatmessengertest;
 
 import android.app.Activity;
 import android.app.AlertDialog;
-//import android.app.Dialog;
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
@@ -24,20 +24,13 @@ import com.android.volley.toolbox.Volley;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import java.security.NoSuchAlgorithmException;
-import java.security.SecureRandom;
 import java.util.ArrayList;
 
-import org.apache.commons.codec.binary.Base64;
-import org.spongycastle.jce.provider.BouncyCastleProvider;
-
-import co.intentservice.chatui.ChatView;
 
 public class ConvoActivity extends Activity {
     // private static final String TAG = "ArrayAdapterListViewActivity";
     EditText editText, etKey;
     Button addButton;
-    TextView textView;
     ConvoArrayAdapter adapter;
     ListView listview;
     ArrayList<String> arrayList;
@@ -51,10 +44,11 @@ public class ConvoActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_convo);
+        getWindow().getDecorView().setBackgroundColor(Color.WHITE);
         cInstance = this;
         final String token = getIntent().getStringExtra("token");
         addButton = (Button) findViewById(R.id.addButton);
-        textView = (TextView) findViewById(R.id.textView);
+        //textView = (TextView) findViewById(R.id.textView);
         editText = (EditText) findViewById(R.id.editText);
         etKey = (EditText) findViewById(R.id.etKey);
         listview = (ListView) findViewById(R.id.listview);
@@ -91,7 +85,6 @@ public class ConvoActivity extends Activity {
                         VolleyLog.v("Response:%n %s", response.toString(4));
                         boolean success = response.getBoolean("success");
                         if (success) {
-
                             //System.out.println("Your private key is :"+secretKey);
                             String username = response.getString("username");
                             addItem(username);
@@ -103,7 +96,6 @@ public class ConvoActivity extends Activity {
                                     .create()
                                     .show();
                         }
-
                     } catch (JSONException e) {
                         e.printStackTrace();
                     }
@@ -128,11 +120,14 @@ public class ConvoActivity extends Activity {
                 final String item = (String) parent.getItemAtPosition(position);
 
                 final String secretKey = etKey.getText().toString();
-                System.out.println("edittext secret is :"+secretKey);
+                if(!secretKey.equals(null)&&(secretKey.length()>0)){
+
+                System.out.println("onitem click edittext secret is :"+secretKey);
                 view.animate().setDuration(2000).alpha(0)
                         .withEndAction(new Runnable() {
                             @Override
-                            public void run() {if(!secretKey.equals(null)&&(secretKey.length()>0)){
+                            public void run() {
+
                                 Intent intent = new Intent(ConvoActivity.this, ChatActivity.class);
                                 intent.putExtra("username", item);//username is receiver name eg.nalula
                                 intent.putExtra("token",token);
@@ -140,14 +135,14 @@ public class ConvoActivity extends Activity {
                                 intent.putExtra("secretKey",secretKey);
                                 System.out.println("token passed to chat is :"+ token);
                                 System.out.println("SecretKey passed to chat is :"+ secretKey);
-                                ConvoActivity.this.startActivity(intent);}
-                            else{
-                                Toast.makeText(getBaseContext(), "Buddy Key is not set!", Toast.LENGTH_LONG).show();
-                            }
-
+                                ConvoActivity.this.startActivity(intent);
                                 //etKey.setText("");
                             }
                         });
+                }
+                else{
+                  Toast.makeText(getBaseContext(), "Secret Word is not set!", Toast.LENGTH_LONG).show();
+                }
             }
 
         });
@@ -207,9 +202,5 @@ public class ConvoActivity extends Activity {
         }
         return cRequestQueue;
     }
-
-   /* public void populate(){
-        Cursor cursor = myDb.getAllRows();
-    }*/
 
 }
