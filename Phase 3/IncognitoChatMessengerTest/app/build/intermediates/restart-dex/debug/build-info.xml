@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<instant-run
+    abi="x86"
+    api-level="16"
+    density="hdpi"
+    format="8"
+    plugin-version="2.2.2"
+    timestamp="67288831689747"
+    token="8480136396657975420"
+    verifier="FIELD_ADDED" >
+
+    <task
+        name="javac"
+        duration="1244" />
+    <task
+        name="instant-run-dex"
+        duration="0" />
+    <task
+        name="instant-run-transform"
+        duration="87" />
+    <task
+        name="verifier"
+        duration="11" />
+
+    <artifact
+        location="C:\Users\darry\AndroidStudioProjects\IncognitoChatMessengerTest\app\build\outputs\apk\app-debug.apk"
+        type="MAIN" />
+
+    <build
+        timestamp="67288831689747"
+        verifier="FIELD_ADDED" >
+        <artifact
+            location="C:\Users\darry\AndroidStudioProjects\IncognitoChatMessengerTest\app\build\outputs\apk\app-debug.apk"
+            type="MAIN" />
+    </build>
+
+</instant-run>

@@ -1,0 +1,19 @@
+
+{
+	"buildFiles" : 
+	[
+		"C:/Users/darry/AndroidStudioProjects/IncognitoChatMessengerTest/app/CMakeLists.txt"
+	],
+	"cleanCommands" : 
+	[
+		"C:\\Users\\darry\\AppData\\Local\\Android\\Sdk\\cmake\\3.6.3155560\\bin\\cmake.exe --build C:\\Users\\darry\\AndroidStudioProjects\\IncognitoChatMessengerTest\\app\\.externalNativeBuild\\cmake\\debug\\mips --target clean"
+	],
+	"toolchains" : 
+	{
+		"3700654049" : 
+		{
+			"cCompilerExecutable" : "C:/Users/darry/AppData/Local/Android/sdk/ndk-bundle/toolchains/llvm/prebuilt/windows-x86_64/bin/clang.exe",
+			"cppCompilerExecutable" : "C:/Users/darry/AppData/Local/Android/sdk/ndk-bundle/toolchains/llvm/prebuilt/windows-x86_64/bin/clang++.exe"
+		}
+	}
+}

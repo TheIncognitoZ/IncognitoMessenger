@@ -1,0 +1,257 @@
+<?xml version="1.0" encoding="utf-8"?>
+<items version="2" >
+
+    <item
+        is-multidex="false"
+        jar="C:\Users\darry\AndroidStudioProjects\IncognitoChatMessengerTest\app\build\intermediates\exploded-aar\com.android.support\design\24.2.1\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.0"
+        sha1="e03f47f3d1017a093bb3239d4ec47c3447f40744">
+        <dex dex="C:\Users\darry\AndroidStudioProjects\IncognitoChatMessengerTest\app\build\intermediates\pre-dexed\debug\com.android.support-design-24.2.1_5aa083ad5c5deb999aaff7fe7f7df4ab4869ac3a.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\darry\AndroidStudioProjects\IncognitoChatMessengerTest\app\build\intermediates\exploded-aar\com.android.support\support-vector-drawable\24.2.1\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.0"
+        sha1="d5c731fc64c03dfe04d51134955b483551c35849">
+        <dex dex="C:\Users\darry\AndroidStudioProjects\IncognitoChatMessengerTest\app\build\intermediates\pre-dexed\debug\com.android.support-support-vector-drawable-24.2.1_14d621baeac63a5feb2389a18598ae9065ead385.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\darry\AndroidStudioProjects\IncognitoChatMessengerTest\app\build\intermediates\exploded-aar\com.android.support\support-compat\24.2.1\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.0"
+        sha1="0ecb4b595fa0f0f8018a149ace3ea6525624f94e">
+        <dex dex="C:\Users\darry\AndroidStudioProjects\IncognitoChatMessengerTest\app\build\intermediates\pre-dexed\debug\com.android.support-support-compat-24.2.1_3deaffd19f9a8d26fd6305e7e44a0b21246baf09.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\darry\AndroidStudioProjects\IncognitoChatMessengerTest\app\build\intermediates\exploded-aar\com.android.support\support-core-utils\24.2.1\jars\libs\internal_impl-24.2.1.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.0"
+        sha1="935a969265b2a166b2d20415423f5f6e90fe16e0">
+        <dex dex="C:\Users\darry\AndroidStudioProjects\IncognitoChatMessengerTest\app\build\intermediates\pre-dexed\debug\internal_impl-24.2.1_09799712c212755a1a6cdc70d4aa180f1f2d9a49.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\darry\AndroidStudioProjects\IncognitoChatMessengerTest\app\build\intermediates\exploded-aar\com.android.support\support-fragment\24.2.1\jars\libs\internal_impl-24.2.1.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.0"
+        sha1="5f64d657e838e8375135c0f6057a7ff8fab6a50e">
+        <dex dex="C:\Users\darry\AndroidStudioProjects\IncognitoChatMessengerTest\app\build\intermediates\pre-dexed\debug\internal_impl-24.2.1_d68cc349a250b30930975cace820440b3a956622.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\darry\AndroidStudioProjects\IncognitoChatMessengerTest\app\build\intermediates\exploded-aar\com.android.support\support-v4\24.2.1\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.0"
+        sha1="d7c42c80f6509b9ea4db28ca7859ffae08ec5741">
+        <dex dex="C:\Users\darry\AndroidStudioProjects\IncognitoChatMessengerTest\app\build\intermediates\pre-dexed\debug\com.android.support-support-v4-24.2.1_fc3f317bd1a3863e4107ae8a276394dfe0853241.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\darry\AndroidStudioProjects\IncognitoChatMessengerTest\app\build\intermediates\exploded-aar\com.android.volley\volley\1.0.0\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.0"
+        sha1="2cd4b982617e544728de0782d718a58ce1b06e3f">
+        <dex dex="C:\Users\darry\AndroidStudioProjects\IncognitoChatMessengerTest\app\build\intermediates\pre-dexed\debug\com.android.volley-volley-1.0.0_2c3dd6a3181410f6c9c81c097fb0def488af3e18.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\darry\.gradle\caches\modules-2\files-2.1\com.madgag.spongycastle\prov\1.54.0.0\2761c67fdffa21ffcd73cfb8c3acd52ca8866694\prov-1.54.0.0.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.0"
+        sha1="2761c67fdffa21ffcd73cfb8c3acd52ca8866694">
+        <dex dex="C:\Users\darry\AndroidStudioProjects\IncognitoChatMessengerTest\app\build\intermediates\pre-dexed\debug\prov-1.54.0.0_0c166dd5b7cbcf8d364773fb2f440ed627ca7e81.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\darry\AndroidStudioProjects\IncognitoChatMessengerTest\app\libs\core-1.54.0.0.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.0"
+        sha1="de79c5f8c67234f0d0073e00ed1f3bab0e5d1e67">
+        <dex dex="C:\Users\darry\AndroidStudioProjects\IncognitoChatMessengerTest\app\build\intermediates\pre-dexed\debug\core-1.54.0.0_7aed7927799494e98e442f5497a3499208a2cbff.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\darry\AndroidStudioProjects\IncognitoChatMessengerTest\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\24.2.1\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.0"
+        sha1="43b2dba6b5a0b14527961b75329d0b90025f15ea">
+        <dex dex="C:\Users\darry\AndroidStudioProjects\IncognitoChatMessengerTest\app\build\intermediates\pre-dexed\debug\com.android.support-appcompat-v7-24.2.1_ceda19fe68a22e9046df54308ae17058616a8ec4.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\darry\.gradle\caches\modules-2\files-2.1\org.jbundle.util.osgi.wrapped\org.jbundle.util.osgi.wrapped.org.apache.http.client\4.1.2\98c86e42679fe7ac066f6c242e0d14f0bce0bb7c\org.jbundle.util.osgi.wrapped.org.apache.http.client-4.1.2.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.0"
+        sha1="98c86e42679fe7ac066f6c242e0d14f0bce0bb7c">
+        <dex dex="C:\Users\darry\AndroidStudioProjects\IncognitoChatMessengerTest\app\build\intermediates\pre-dexed\debug\org.jbundle.util.osgi.wrapped.org.apache.http.client-4.1.2_9f00f2a6d1fb2dba605616952b1bde68164bfd97.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\darry\.gradle\caches\modules-2\files-2.1\org.apache.commons\commons-lang3\3.0\8873bd0bb5cb9ee37f1b04578eb7e26fcdd44cb0\commons-lang3-3.0.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.0"
+        sha1="8873bd0bb5cb9ee37f1b04578eb7e26fcdd44cb0">
+        <dex dex="C:\Users\darry\AndroidStudioProjects\IncognitoChatMessengerTest\app\build\intermediates\pre-dexed\debug\commons-lang3-3.0_c6f9d33c7281dfaf4e156a8728e05a8d96b7879b.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\darry\AndroidStudioProjects\IncognitoChatMessengerTest\app\build\intermediates\exploded-aar\com.android.support\support-core-ui\24.2.1\jars\libs\internal_impl-24.2.1.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.0"
+        sha1="867dad63c33388ff8c7644b236579355036d075f">
+        <dex dex="C:\Users\darry\AndroidStudioProjects\IncognitoChatMessengerTest\app\build\intermediates\pre-dexed\debug\internal_impl-24.2.1_141566f09ba74b171768326b87b602ab0819752a.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Program Files\Android\Android Studio\gradle\m2repository\commons-codec\commons-codec\1.10\commons-codec-1.10.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.0"
+        sha1="4b95f4897fa13f2cd904aee711aeafc0c5295cd8">
+        <dex dex="C:\Users\darry\AndroidStudioProjects\IncognitoChatMessengerTest\app\build\intermediates\pre-dexed\debug\commons-codec-1.10_77183437e43d03fbf04d48242f704eeda6368256.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\darry\AndroidStudioProjects\IncognitoChatMessengerTest\app\build\intermediates\exploded-aar\com.android.support\recyclerview-v7\24.2.1\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.0"
+        sha1="7521486d9bfd2cd9e756e0cf75ed7d97f2ce2d3b">
+        <dex dex="C:\Users\darry\AndroidStudioProjects\IncognitoChatMessengerTest\app\build\intermediates\pre-dexed\debug\com.android.support-recyclerview-v7-24.2.1_b35ecea6dfeee69e49337ec5681831ad7389e208.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\darry\AndroidStudioProjects\IncognitoChatMessengerTest\app\build\intermediates\exploded-aar\com.android.support\animated-vector-drawable\24.2.1\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.0"
+        sha1="94bc1dfb84dcc8b6f6f8f7cc726d7b2dd39c1574">
+        <dex dex="C:\Users\darry\AndroidStudioProjects\IncognitoChatMessengerTest\app\build\intermediates\pre-dexed\debug\com.android.support-animated-vector-drawable-24.2.1_01fd0babfe4cca68b444d943011daf1944c35d0c.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\darry\AndroidStudioProjects\IncognitoChatMessengerTest\app\build\intermediates\exploded-aar\pl.tajchert\waitingdots\0.2.0\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.0"
+        sha1="cd83623b203ce6e77f4f1c7e38b295df89e0a6f3">
+        <dex dex="C:\Users\darry\AndroidStudioProjects\IncognitoChatMessengerTest\app\build\intermediates\pre-dexed\debug\pl.tajchert-waitingdots-0.2.0_67a1c8388c0daf5e915bb31f474f254a55f58941.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\darry\AndroidStudioProjects\IncognitoChatMessengerTest\app\build\intermediates\exploded-aar\com.android.support\support-core-utils\24.2.1\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.0"
+        sha1="9c4c3bc902450c39ed54de170db4fb12aea20a35">
+        <dex dex="C:\Users\darry\AndroidStudioProjects\IncognitoChatMessengerTest\app\build\intermediates\pre-dexed\debug\com.android.support-support-core-utils-24.2.1_9a096ccae9c4b796812ead1fe756fb5dcbbc20e6.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\darry\AndroidStudioProjects\IncognitoChatMessengerTest\app\build\intermediates\exploded-aar\com.android.support\support-media-compat\24.2.1\jars\libs\internal_impl-24.2.1.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.0"
+        sha1="fbf8da429efd5ad21e02e3e5ecaa1efc4167878d">
+        <dex dex="C:\Users\darry\AndroidStudioProjects\IncognitoChatMessengerTest\app\build\intermediates\pre-dexed\debug\internal_impl-24.2.1_7e5cc1bc6f0765080751f56bc2df544ff134598a.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\darry\AndroidStudioProjects\IncognitoChatMessengerTest\app\build\intermediates\exploded-aar\com.android.support\cardview-v7\23.4.0\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.0"
+        sha1="d9ecde39b460470e655de6e47c05573d2d5a8bfb">
+        <dex dex="C:\Users\darry\AndroidStudioProjects\IncognitoChatMessengerTest\app\build\intermediates\pre-dexed\debug\com.android.support-cardview-v7-23.4.0_5976b6318bea509b82be3db21c869a7d286f9620.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\darry\AndroidStudioProjects\IncognitoChatMessengerTest\app\build\intermediates\exploded-aar\com.android.support\support-fragment\24.2.1\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.0"
+        sha1="b9a1ac78ad7ef3abedc4a4b30cd92bcacb939d1f">
+        <dex dex="C:\Users\darry\AndroidStudioProjects\IncognitoChatMessengerTest\app\build\intermediates\pre-dexed\debug\com.android.support-support-fragment-24.2.1_9f2f36877839280c1ad7e4423a5bb1ff98f7ed48.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\darry\AndroidStudioProjects\IncognitoChatMessengerTest\app\build\intermediates\exploded-aar\IncognitoChatMessengerTest\library\unspecified\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.0"
+        sha1="28d7e38c5337f616b28e563c977af1003214139a">
+        <dex dex="C:\Users\darry\AndroidStudioProjects\IncognitoChatMessengerTest\app\build\intermediates\pre-dexed\debug\IncognitoChatMessengerTest-library-unspecified_490e293d6b3c2fa80788638edc3439be66621a1f.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\darry\AndroidStudioProjects\IncognitoChatMessengerTest\libscrypt\build\libs\libscrypt.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.0"
+        sha1="70ef3bb5a6b273fde9832e79dc47fee4932776a9">
+        <dex dex="C:\Users\darry\AndroidStudioProjects\IncognitoChatMessengerTest\app\build\intermediates\pre-dexed\debug\libscrypt_38ff238fbb8d418e58b4674ced600414155cacd8.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\darry\AndroidStudioProjects\IncognitoChatMessengerTest\app\build\intermediates\exploded-aar\com.android.support\support-core-ui\24.2.1\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.0"
+        sha1="e7f3132168957eefc46229fc32c3bd464642b71e">
+        <dex dex="C:\Users\darry\AndroidStudioProjects\IncognitoChatMessengerTest\app\build\intermediates\pre-dexed\debug\com.android.support-support-core-ui-24.2.1_8bbf0f3321a42391e739db7769b4d86238f21157.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\darry\AndroidStudioProjects\IncognitoChatMessengerTest\app\build\intermediates\exploded-aar\com.android.support\support-media-compat\24.2.1\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.0"
+        sha1="09b462bbcb77650284bd6614f1a32f360ef369f8">
+        <dex dex="C:\Users\darry\AndroidStudioProjects\IncognitoChatMessengerTest\app\build\intermediates\pre-dexed\debug\com.android.support-support-media-compat-24.2.1_d81a721c34fbb486382be2bda14473e1f1bbe6dc.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Program Files\Android\Android Studio\gradle\m2repository\commons-io\commons-io\2.4\commons-io-2.4.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.0"
+        sha1="b1b6ea3b7e4aa4f492509a4952029cd8e48019ad">
+        <dex dex="C:\Users\darry\AndroidStudioProjects\IncognitoChatMessengerTest\app\build\intermediates\pre-dexed\debug\commons-io-2.4_b2955a73e8fdec69863902c786dced8321b28c5c.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\darry\AndroidStudioProjects\IncognitoChatMessengerTest\app\build\intermediates\exploded-aar\com.android.support\support-compat\24.2.1\jars\libs\internal_impl-24.2.1.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.0"
+        sha1="7e4389bd133359a2ff88623ff1e4ff93d6e6f780">
+        <dex dex="C:\Users\darry\AndroidStudioProjects\IncognitoChatMessengerTest\app\build\intermediates\pre-dexed\debug\internal_impl-24.2.1_01978e87e5c06244f1e72b73349d165e7afa6f48.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\darry\AppData\Local\Android\sdk\extras\android\m2repository\com\android\support\support-annotations\24.2.1\support-annotations-24.2.1.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.0"
+        sha1="8de3aafecbdf98a61db6427f008f2d515bcd2544">
+        <dex dex="C:\Users\darry\AndroidStudioProjects\IncognitoChatMessengerTest\app\build\intermediates\pre-dexed\debug\support-annotations-24.2.1_e15925e0a9dfcd55e4f9eb74404f8a52bb4036e9.jar" />
+    </item>
+
+</items>
