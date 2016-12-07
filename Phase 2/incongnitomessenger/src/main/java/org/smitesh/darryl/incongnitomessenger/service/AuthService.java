@@ -5,10 +5,13 @@ import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.HashMap;
+
+import org.smitesh.darryl.incongnitomessenger.mail.TLSEmail;
 import org.smitesh.darryl.incongnitomessenger.model.Credentials;
 import org.smitesh.darryl.incongnitomessenger.model.Response;
 
 import com.auth0.jwt.JWTSigner;
+import com.auth0.jwt.internal.org.apache.commons.lang3.RandomStringUtils;
 
 public class AuthService {
 	public Response NewUser(Credentials creds) {
@@ -21,12 +24,20 @@ public class AuthService {
 		Statement myStmt = myConn.createStatement();
 		//System.out.println("ID"+m.getId()+"\nAuthor"+m.getAuthor()+"\nContent"+m.getContent());
 		String query = "INSERT INTO users (`username`,`password`,`email`) VALUES ('"+creds.getUsername()+"','"+creds.getPassword()+"','"+creds.getEmail()+"')";
-		String query1 = "CREATE TABLE `messagedb`.`"+creds.getUsername()+"` (`id` INT NOT NULL AUTO_INCREMENT,`sender` VARCHAR(45) NOT NULL,`receiver` VARCHAR(45) NOT NULL,`content` VARCHAR(200) NULL,`publickey` VARCHAR(140),`sign` VARCHAR(140),PRIMARY KEY (`id`))";
+		String query1 = "CREATE TABLE `messagedb`.`"+creds.getUsername()+"` (`id` INT NOT NULL AUTO_INCREMENT,`sender` VARCHAR(45) NOT NULL,`receiver` VARCHAR(45) NOT NULL,`content` VARCHAR(200) NULL,`publickey` VARCHAR(200),`sign` VARCHAR(200),PRIMARY KEY (`id`))";
 		System.out.println(query);
 		System.out.println(query1);
 		myStmt.executeUpdate(query);
 		myStmt.executeUpdate(query1);
 		result.setSuccess(true);
+		if(result.getSuccess())
+		{
+			String abc =RandomStringUtils.randomAlphanumeric(7);
+			String query2 = "UPDATE `messagedb`.`users` SET `URL`='"+abc+"' WHERE `username`='"+creds.getUsername()+"'";
+			myStmt.executeUpdate(query2);
+			TLSEmail mailer = new TLSEmail();
+			mailer.EmailSendMain(creds.getEmail(), " http://localhost:8080/incongnitomessenger/webapi/auth/verify/"+abc);
+		}
 		}
 		catch(Exception e)
 		{
@@ -46,8 +57,11 @@ public class AuthService {
 			System.out.println("Username = "+creds.getUsername());
 			//System.out.println("ID"+m.getId()+"\nAuthor"+m.getAuthor()+"\nContent"+m.getContent());
 			String query = "SELECT * from users where username='"+creds.getUsername()+"' AND password='"+creds.getPassword()+"'";
+			System.out.println(query);
 			ResultSet myRes = myStmt.executeQuery(query);
-			if(myRes.next())
+			myRes.next();
+			System.out.println("Checking if verified:"+myRes.getString("Verified"));
+			if(myRes.getInt("Verified")==1)
 			{
 					final String issuer = "https://localhost:8080/incongnitomessenger";
 					final String secret = "{I AM A PEN}";
@@ -67,7 +81,7 @@ public class AuthService {
 			}
 			else
 			{
-				result.setUsername("Everything is wrong here.");
+				result.setUsername("Email ID Not Verified");
 				result.setSuccess(false);
 				result.setToken("Invalid Username");
 			}
@@ -128,5 +142,30 @@ public class AuthService {
 			e.printStackTrace();	
 		}
 		return result;
+	}
+	public boolean validateEmail(String randurl)
+	{
+		boolean flag = false;
+		try{
+		Class.forName("com.mysql.jdbc.Driver");
+		String url = "jdbc:mysql://localhost:3306/messagedb";
+		Connection myConn = DriverManager.getConnection(url , "root", "");
+		Statement myStmt = myConn.createStatement();
+		//System.out.println("Username = "+creds.getUsername());
+		//System.out.println("ID"+m.getId()+"\nAuthor"+m.getAuthor()+"\nContent"+m.getContent());
+		String query = "SELECT username from users where URL='"+randurl+"'";
+		ResultSet myRes = myStmt.executeQuery(query);
+		if(myRes.next())
+		{
+			myStmt.executeUpdate("UPDATE `messagedb`.`users` SET `Verified`=1 WHERE `username`='"+myRes.getString("username")+"'");
+			flag=true;
+		}
+		}
+		catch(Exception e)
+		{
+			e.printStackTrace();	
+			flag=false;
+		}
+		return flag;
 	}
 }

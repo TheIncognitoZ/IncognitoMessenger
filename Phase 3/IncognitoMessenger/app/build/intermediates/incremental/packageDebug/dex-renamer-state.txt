@@ -1,0 +1,7 @@
+#Sat Oct 29 16:30:50 MST 2016
+base.0=C\:\\Users\\Smitesh\\AndroidStudioProjects\\IncognitoMessenger\\app\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\10\\instant-run_bf7d7567c32360fee13a82468d3f91b3a5aa868b
+renamed.1=classes.dex
+renamed.0=classes2.dex
+file.1=C\:\\Users\\Smitesh\\AndroidStudioProjects\\IncognitoMessenger\\app\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\10\\instant-run-bootstrap_bee2d2ea78b7db321c643bd70b06f33e5c40d1fc\\classes.dex
+base.1=C\:\\Users\\Smitesh\\AndroidStudioProjects\\IncognitoMessenger\\app\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\10\\instant-run-bootstrap_bee2d2ea78b7db321c643bd70b06f33e5c40d1fc
+file.0=C\:\\Users\\Smitesh\\AndroidStudioProjects\\IncognitoMessenger\\app\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\10\\instant-run_bf7d7567c32360fee13a82468d3f91b3a5aa868b\\classes.dex

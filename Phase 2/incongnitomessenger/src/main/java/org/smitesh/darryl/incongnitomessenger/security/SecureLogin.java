@@ -4,6 +4,7 @@ import javax.ws.rs.Consumes;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;
+import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 
@@ -45,5 +46,17 @@ public class SecureLogin {
 	public Response Initialize()
 	{
 		return authService.Initialize();
+	}
+	@GET
+	@Path("/verify/{randstring}")
+	@Produces(MediaType.TEXT_HTML)
+	public String VerifyEmail(@PathParam("randstring") String urlFind)
+	{
+		System.out.println("Control is in here! with randString = "+urlFind);
+		boolean test = authService.validateEmail(urlFind);
+		if (test)
+			return "<html><h1>Your Email has been verified congratulations</h1></html>";
+		else
+			return "Verification unsuccessful";
 	}
 }
