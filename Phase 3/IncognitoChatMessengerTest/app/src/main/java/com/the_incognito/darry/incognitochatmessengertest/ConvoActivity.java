@@ -120,26 +120,25 @@ public class ConvoActivity extends Activity {
                 final String item = (String) parent.getItemAtPosition(position);
 
                 final String secretKey = etKey.getText().toString();
-                if(!secretKey.equals(null)&&(secretKey.length()>0)){
+                if(!secretKey.equals(null)&&(secretKey.length()>8)){
+                    Intent intent = new Intent(ConvoActivity.this, ChatActivity.class);
+                    intent.putExtra("username", item);//username is receiver name eg.nalula
+                    intent.putExtra("token",token);
+                    intent.putExtra("author",author);
+                    intent.putExtra("secretKey",secretKey);
+                    System.out.println("token passed to chat is :"+ token);
+                    System.out.println("SecretKey passed to chat is :"+ secretKey);
+                    ConvoActivity.this.startActivity(intent);
+                System.out.println("onitem click edittext secret is :"+secretKey);}
+                //view.animate().withEndAction(new Runnable() {
+                   //         @Override
+                   //         public void run() {
 
-                System.out.println("onitem click edittext secret is :"+secretKey);
-                view.animate().setDuration(2000).alpha(0)
-                        .withEndAction(new Runnable() {
-                            @Override
-                            public void run() {
 
-                                Intent intent = new Intent(ConvoActivity.this, ChatActivity.class);
-                                intent.putExtra("username", item);//username is receiver name eg.nalula
-                                intent.putExtra("token",token);
-                                intent.putExtra("author",author);
-                                intent.putExtra("secretKey",secretKey);
-                                System.out.println("token passed to chat is :"+ token);
-                                System.out.println("SecretKey passed to chat is :"+ secretKey);
-                                ConvoActivity.this.startActivity(intent);
-                                //etKey.setText("");
-                            }
-                        });
-                }
+                  //              //etKey.setText("");
+                   //         }
+                  //      });
+                //}
                 else{
                   Toast.makeText(getBaseContext(), "Secret Word is not set!", Toast.LENGTH_LONG).show();
                 }

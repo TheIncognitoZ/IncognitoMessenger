@@ -99,7 +99,8 @@ public class ChatActivity extends AppCompatActivity {
                 return true;
             }
         });
-        final String URL = "http://192.168.1.16:8080/incongnitomessenger/webapi/messages/"+username;//https://api.incognitomessenger.me/incongnitomessenger/webapi/messages/
+        final String URL = "http://192.168.1.16:8080/incongnitomessenger/webapi/messages/"+username;
+        //final String URL = "https://api.incognitomessenger.me/incongnitomessenger/webapi/messages/"+username;
         final JsonArrayRequest req = new
             JsonArrayRequest(URL, new com.android.volley.Response.Listener<JSONArray>() {
 
@@ -122,9 +123,9 @@ public class ChatActivity extends AppCompatActivity {
                             Log.d("content", content);
                             VolleyLog.v("Response:%n %s", response.toString(4));
                             String msgMAC = hmac(author+content);
-                            if(BouncyCastleIM.vrfySig(signature,ecPublicKey,msgMAC)){
                             BouncyCastleIM dec = new BouncyCastleIM();
                             String decodedMsg = dec.decryption(secretKey, content);
+                            if(BouncyCastleIM.vrfySig(signature,ecPublicKey,msgMAC)&& (!decodedMsg.equals("Purposefull long Invalid String so that this message is dropped and will never reach the intended recipient. Kenny Dalglish is King."))){
                             chatView.addMessage(new ChatMessage(decodedMsg, System.currentTimeMillis(), ChatMessage.Type.RECEIVED));
                             }else{
                                 Toast.makeText(getBaseContext(), "Invalid message found and dropped!", Toast.LENGTH_LONG).show();

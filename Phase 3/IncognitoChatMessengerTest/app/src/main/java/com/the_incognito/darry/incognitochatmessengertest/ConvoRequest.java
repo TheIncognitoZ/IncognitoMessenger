@@ -17,7 +17,8 @@ import java.util.Map;
 
 public class ConvoRequest {
     private HashMap<String, String> params;
-    private static final String EMAIL_CHECK_URL = "http://192.168.1.16:8080/incongnitomessenger/webapi/auth/emailcheck";//nalula@gmail.com http://requestb.in/1hjw87e1";//
+    private static final String EMAIL_CHECK_URL = "http://192.168.1.16:8080/incongnitomessenger/webapi/auth/emailcheck";
+    //private static final String EMAIL_CHECK_URL ="https://api.incognitomessenger.me/incongnitomessenger/webapi/auth/emailcheck";//nalula@gmail.com http://requestb.in/1hjw87e1";//
     //private Map<String, String> params;
 
     public ConvoRequest(String email, Response.Listener<JSONObject> listener) {

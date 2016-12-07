@@ -27,7 +27,8 @@ import static com.the_incognito.darry.incognitochatmessengertest.LoginActivity.u
 
 public class PostMsg {
     private HashMap<String, String> params;
-    private static final String POST_REQUEST_URL ="http://192.168.1.16:8080/incongnitomessenger/webapi/messages"; //"http://requestb.in/13u3n2q1"; https://api.incognitomessenger.me/incongnitomessenger/webapi/messages
+    private static final String POST_REQUEST_URL ="http://192.168.1.16:8080/incongnitomessenger/webapi/messages";
+    // private static final String POST_REQUEST_URL = "https://api.incognitomessenger.me/incongnitomessenger/webapi/messages";//"http://requestb.in/13u3n2q1"; https://api.incognitomessenger.me/incongnitomessenger/webapi/messages
 
 
     //private Map<String, String> params;

@@ -20,8 +20,10 @@ import com.lambdaworks.crypto.SCryptUtil;
 
 import org.json.JSONException;
 import org.json.JSONObject;
+import org.spongycastle.util.encoders.Base64;
 
 import java.io.BufferedInputStream;
+import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.security.Security;
@@ -54,7 +56,7 @@ public class LoginActivity extends Activity {
         //nedu@gmail.com  smiteshsawantz@ola.com
 
         //Debugging ChatActivity
-        /*Intent intent = new Intent(LoginActivity.this, ConvoActivity.class);
+       /* Intent intent = new Intent(LoginActivity.this, ChatActivity.class);
         intent.putExtra("username", username);
         intent.putExtra("token",token);
         System.out.println("token passed to Convos is :"+ token);
@@ -80,11 +82,18 @@ public class LoginActivity extends Activity {
                 final String name = etName.getText().toString();
                 final String password = etPassword.getText().toString();
                 //byte[] passwordBytes = password.getBytes();
-                String scrypt = "";
+                String scrypt = null;
                 String saltString = "";
                 FileInputStream fis = null;
                 if(salt==null) {
                 try {
+                    //File f = new File(getFilesDir(), "USER_"+name);
+                    File f = getFilesDir();
+                    String path = f.getAbsolutePath();
+                    //String fileName = "My_file.txt";
+                    //String filePath = f.getAbsolutePath()+File.separator+fileName;
+                    //fis = openFileInput(filePath);//"My_file.txt");
+                    System.out.println("reading from File path :"+path+"____________________________________");
                     fis = openFileInput("My_file.txt");
                     BufferedInputStream bis = new BufferedInputStream(fis);
                     StringBuffer b = new StringBuffer();
@@ -95,14 +104,16 @@ public class LoginActivity extends Activity {
                     bis.close();
                     fis.close();
                     saltString = b.toString();
-                    salt = saltString.getBytes();
+                    System.out.println("salt from read file is :"+saltString);
+                    salt = Base64.decode(saltString);
+
                 } catch (IOException e) {
                     e.printStackTrace();
                 }}
 
-                if(salt!=null) {
+                if(salt!=null ) {
                     scrypt = SCryptUtil.scrypt(salt, password, 16384, 8, 1);
-                    System.out.println("scrypt is :" + scrypt);
+                    System.out.println("scrypt in login button pressed is :" + scrypt);
                 }
                 else{System.out.println("No salt found!");}
                 //String hashed = "$s0$e0801$RtQneCUvZYdYC8ai3y0ivg==$mmrh5OX8krvPHUZls1b52mxgITnyoRJUS4gdG/IZp0E=";

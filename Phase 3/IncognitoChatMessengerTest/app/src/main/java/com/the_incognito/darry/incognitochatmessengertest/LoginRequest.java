@@ -15,7 +15,8 @@ import java.util.HashMap;
 
 public class LoginRequest {
     private HashMap<String, String> params;
-    private static final String LOGIN_REQUEST_URL = "https://api.incognitomessenger.me/incongnitomessenger/webapi/auth/login";
+    private static final String LOGIN_REQUEST_URL = "http://192.168.1.16:8080/incongnitomessenger/webapi/auth/login";
+    //private static final String LOGIN_REQUEST_URL = "https://api.incognitomessenger.me/incongnitomessenger/webapi/auth/login";
     //private Map<String, String> params;
 
     public LoginRequest(String username, String password, Response.Listener<JSONObject> listener) {
@@ -23,7 +24,7 @@ public class LoginRequest {
         params = new HashMap<>();
         params.put("username", username);
         params.put("password", password);
-
+        System.out.println("Password in loginrequest :"+password);
         JsonObjectRequest req = new JsonObjectRequest(LOGIN_REQUEST_URL, new JSONObject(params),
                 listener, new Response.ErrorListener() {
             @Override

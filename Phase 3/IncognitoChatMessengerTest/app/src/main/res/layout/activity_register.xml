@@ -55,5 +55,14 @@
         android:layout_alignRight="@+id/etEmail"
         android:layout_alignEnd="@+id/etEmail" />
 
+    <TextView
+        android:text="Password must contain at least one digit(0-9), one lowercase alphabet, one uppercase alphabet, one  special character(@#$%).\nPassword must be at least 8 characters long."
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/textView2"
+        android:layout_below="@+id/bRegister"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="117dp" />
+
 
 </RelativeLayout>

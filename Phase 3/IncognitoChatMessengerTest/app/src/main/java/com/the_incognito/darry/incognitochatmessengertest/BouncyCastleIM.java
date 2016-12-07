@@ -43,22 +43,26 @@ public class BouncyCastleIM {
     }
     public static String encryption(String key, String plainText) throws Exception
     {
-        String ET = encrypt(key,plainText) ;
-        String HMAC = hmacSha256(key,ET);
+        //String ET = encrypt(key,plainText) ;
+        String ET = encrypt(key.substring(0,(int)Math.floor(key.length()/2)),plainText);
+        String HMAC = hmacSha256(key.substring((int)Math.floor(key.length()/2)),ET);
+        //String HMAC = hmacSha256(key,ET);
         return ET+HMAC;
     }
     public static String decryption(String key, String encrypted) throws Exception
     {
         String extractHMAC = encrypted.substring(encrypted.length()-64, encrypted.length());
         System.out.println("Extracted HMAC = "+extractHMAC);
-        boolean check = isValid(encrypted.substring(0,encrypted.length()-64),extractHMAC,key);
+        //boolean check = isValid(encrypted.substring(0,encrypted.length()-64),extractHMAC,key);
+        boolean check = isValid(encrypted.substring(0,encrypted.length()-64),extractHMAC,(key.substring((int)Math.floor(key.length()/2))));
         //String result = new String();
         if(check)
         {
-            String DT = decrypt(key,encrypted.substring(0, encrypted.length()-64));
+            String DT = decrypt(key.substring(0,(int)Math.floor(key.length()/2)),encrypted.substring(0, encrypted.length()-64));
+            //String DT = decrypt(key,encrypted.substring(0, encrypted.length()-64));
             return DT;
         }
-        return "Invalid String";
+        return "Purposefull long Invalid String so that this message is dropped and will never reach the intended recipient. Kenny Dalglish is King.";
     }
     public static String encrypt(String key, String toEncrypt) throws Exception {
         Key skeySpec = generateKeySpec(key);
