@@ -1,0 +1,2 @@
+C:/Users/darry/AndroidStudioProjects/IncognitoChatMessengerTest/app/.externalNativeBuild/cmake/debug/mips/CMakeFiles/edit_cache.dir
+C:/Users/darry/AndroidStudioProjects/IncognitoChatMessengerTest/app/.externalNativeBuild/cmake/debug/mips/CMakeFiles/rebuild_cache.dir
